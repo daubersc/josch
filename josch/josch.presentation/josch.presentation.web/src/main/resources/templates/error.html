@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org">
+<head th:replace="template :: head ('Josch :: Error')"></head>
+<body>
+
+<!-- Load the top navigation bar -->
+<div th:replace="template :: header"></div>
+
+<!-- error page -->
+<div class="container-fluid p-5">
+    <div class="row">
+        <div class="col d-flex justify-content-center mx-5">
+            <p style="font-size: large" class="mx-5 px-5">
+<b>{</b> <br>
+&nbsp; &nbsp; "message"<b>:</b> <span class="text-primary">"We are sorry, but your request has lead to an error."</span><b>,</b><br>
+&nbsp; &nbsp; "error"<b>: {</b><br>
+&nbsp; &nbsp; &nbsp; &nbsp; "code"<b>:</b> <span class="text-primary" th:text="${code}"></span><b>,</b><br>
+&nbsp; &nbsp; &nbsp; &nbsp; "reason"<b>:</b> <span class="text-primary">"<span th:text="${message}"></span>."</span><br>
+&nbsp; &nbsp; <b>},</b><br>
+&nbsp; &nbsp; "suggested_action"<b>: {</b><br>
+&nbsp; &nbsp; &nbsp; &nbsp; "description"<b>:</b> <span class="text-primary">"Contact the webmaster."</span><b>,</b><br>
+&nbsp; &nbsp; &nbsp; &nbsp; "address"<b>:</b> <span class="text-primary">"<a class="text-primary" th:href="${adminLink}" title="Compose an e-mail." th:text="${adminMail}"></a>"</span><br>
+
+&nbsp; &nbsp; <b>}</b><br>
+<b>}</b>
+            </p>
+        </div>
+    </div>
+</div>
+
+<!-- Load the footer -->
+<div th:replace="template :: footer"></div>
+
+<div th:replace="template :: script"></div>
+</body>
+</html>

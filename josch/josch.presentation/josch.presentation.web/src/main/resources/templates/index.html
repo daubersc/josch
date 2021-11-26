@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="template :: head ('Josch :: Analyze')"></head>
+
+<body>
+<div th:replace="template :: header"></div>
+
+<!-- content between header and footer -->
+<div class="container-fluid h-100 w-100 m-0 p-0">
+        <!-- default left right margin, full width on medium, split on large screens -->
+        <div class="row mx-3">
+
+            <!-- s1 side -->
+            <div class="col-md-5">
+                <!-- centered headline -->
+                <div class="row my-1">
+                    <div class="col">
+                        <h2 class="text-center">JSON Schema S<sub>1</sub></h2>
+                    </div>
+                </div>
+
+                <!-- selection -->
+                <div class="d-flex p-2 justify-content-around my-3">
+                    <!-- back btn -->
+                    <div class="p-2 mx-5">
+                        <button class="btn btn-primary btn-circle btn-sm" id="s1-back-btn" disabled>
+                            <i class="fa fa-arrow-left"></i>
+                        </button>
+                    </div>
+
+                    <!-- dropdown -->
+                    <select class="form-select p-2 flex-fill" id="s1-slc"
+                            aria-label="Select Schema S1"
+                            onchange="renderSelection('s1', this.value)">
+                        <option selected disabled>Select JSON Schema by date</option>
+                        <option th:each="schema : ${schemas}"
+                                th:value="${schema.json}"
+                                th:text="${schema.toString()}"></option>
+                    </select>
+
+                    <!-- forward button -->
+                    <div class="p-2 mx-5">
+                        <button class="btn btn-primary btn-circle btn-sm" id="s1-next-btn">
+                            <i class="fa fa-arrow-right"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- editor -->
+                <div class="d-flex flex-column h-90 my-3">
+                    <div class="editor flex-grow-1" id="s1-editor"></div>
+                    <textarea id="s1" style="display: none;"></textarea>
+                </div>
+            </div>
+            <!-- end s1 -->
+
+            <!-- center -->
+            <div class="col-md-2">
+                <div class="d-flex flex-column align-items-center justify-content-end mt-5">
+                    <!-- center line -->
+                    <p class="text-center">Check containment using</p>
+
+                    <!-- select tool -->
+                    <select id="containment-tool-slc" class="form-select p-2 my-3"
+                            aria-label="Select Containment Tool">
+                        <option value="jss" selected>jsonsubschema</option>
+                        <option value="ijs">is-json-schema-subset</option>
+                    </select>
+
+                    <!-- check button -->
+                    <button id="check-btn"
+                            class="btn btn-outline-primary my-3">
+                        Check containment
+                    </button>
+
+                    <button id="contain-btn" class="btn-ico my-3">
+                        <svg id="contain-svg" class="svg-lg" viewBox="0 0 2000 2000">
+                            <path id="contain-pth" class="pc-primary pi-is-eqv"/>
+                        </svg>
+                    </button>
+
+                    <p id="containment-info-txt"></p>
+                </div>
+            </div>
+            <!-- end center -->
+
+            <!-- s2 side -->
+            <div class="col-md-5">
+                <!-- centered headline -->
+                <div class="row my-1">
+                    <div class="col">
+                        <h2 class="text-center">JSON Schema S<sub>2</sub></h2>
+                    </div>
+                </div>
+
+                <!-- selection -->
+                <div class="d-flex p-2 justify-content-around my-3">
+                    <!-- back btn -->
+                    <div class="p-2 mx-5">
+                        <button class="btn btn-primary btn-circle btn-sm" id="s2-back-btn" disabled>
+                            <i class="fa fa-arrow-left"></i>
+                        </button>
+                    </div>
+
+                    <!-- dropdown -->
+                    <select class="form-select p-2 flex-fill" id="s2-slc"
+                            aria-label="Select Schema S2"
+                            th:scope="session"
+                            onchange="renderSelection('s2', this.value)">
+                        <option selected disabled>Select JSON Schema by date</option>
+                        <option th:each="schema : ${schemas}"
+                                th:value="${schema.json}"
+                                th:text="${schema.toString()}"></option>
+                    </select>
+
+                    <!-- forward button -->
+                    <div class="p-2 mx-5">
+                        <button class="btn btn-primary btn-circle btn-sm" id="s2-next-btn">
+                            <i class="fa fa-arrow-right"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- editor -->
+                <div class="d-flex flex-column h-90 my-3">
+                    <div class="editor flex-grow-1" id="s2-editor"></div>
+                    <textarea id="s2" style="display: none;"></textarea>
+                </div>
+            </div>
+            <!-- end s2 -->
+        </div>
+</div>
+<!-- end content -->
+
+<div th:replace="template :: footer"></div>
+<div th:replace="template :: script"></div>
+<script>
+    // the ids of the editor divs.
+    const editorIds = ['s1-editor', 's2-editor'];
+
+    // configure each editor
+    editorIds.forEach(id => {
+        let editor = ace.edit(id);
+        editor.setTheme("ace/theme/josch");
+        editor.session.setMode("ace/mode/json"); // set mode to JSON.
+
+
+        // bind the invisible text area.
+        id = id.substring(0,2); // trim "-editor" from the id.
+        let textarea = document.getElementById(id);
+        editor.getSession().on("change", function () {
+            textarea.value = editor.getValue();
+            console.log(textarea.value)
+        })
+    });
+</script>
+</body>
+</html>

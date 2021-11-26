@@ -1,0 +1,321 @@
+/**
+  This stylesheet is the main.css which also gets loaded into html directly. It has to import the
+  other stylesheets, that are either present within the same directory or loaded by a CDN. The basic
+  style of this application is based on the Bootstrap framework. Any bootstrap related code should
+  be within that bootstrap.css.
+  Custom styling, e.g. own classes, that is unrelated to bootstrap, should be written within this
+  file.
+
+  Furthermore note that the code editor uses Ace. Ace is not present in any .css, instead the editor
+  theme is based on JavaScript that creates the .css instead. If you want to change the style of the
+  editor refer to the following file: ../js/theme-josch.js
+
+  @author Kai Dauberschmidt.
+ */
+@import url('bootstrap.css');
+@import url('icons.css');
+@import url("//cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css");
+
+
+html {
+    position: relative;
+    min-height: 100%;
+}
+
+body {
+    min-height: 100%;
+    /** Margins for footer */
+    margin-top: 10%;
+    margin-bottom: 10%;
+}
+
+/* mobile margin */
+.col-md-12 {
+    margin-bottom: 5%;
+}
+
+/* ==========================================================================
+1. ACE editor - do not change this.
+========================================================================== */
+.editor {
+    position: relative;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+}
+
+/* ==========================================================================
+2. Header navigation.
+========================================================================== */
+.navbar-icon-top .navbar-nav .nav-link > .fa {
+    position: relative;
+    width: 36px;
+    font-size: 24px;
+}
+
+.navbar-icon-top .navbar-nav .nav-link > .fa > .badge {
+    font-size: 0.75rem;
+    position: absolute;
+    right: 0;
+    font-family: sans-serif;
+}
+
+.navbar-icon-top .navbar-nav .nav-link > .fa,
+.navbar-icon-top .navbar-nav .nav-link > .fab
+{
+    top: 3px;
+    line-height: 12px;
+}
+
+.navbar-icon-top .navbar-nav .nav-link > .fa > .badge,
+.navbar-icon-top .navbar-nav .nav-link > .fab > .badge{
+    top: -10px;
+}
+
+@media (min-width: 576px) {
+    .navbar-icon-top.navbar-expand-sm .navbar-nav .nav-link {
+        text-align: center;
+        display: table-cell;
+        height: 70px;
+        vertical-align: middle;
+        padding-top: 0;
+        padding-bottom: 0;
+    }
+
+    .navbar-icon-top.navbar-expand-sm .navbar-nav .nav-link > .fa,
+    .navbar-icon-top.navbar-expand-sm .navbar-nav .nav-link > .fab {
+        display: block;
+        width: 48px;
+        margin: 2px auto 4px auto;
+        top: 0;
+        line-height: 24px;
+    }
+
+    .navbar-icon-top.navbar-expand-sm .navbar-nav .nav-link > .fa > .badge,
+    .navbar-icon-top.navbar-expand-sm .navbar-nav .nav-link > .fab > .badge {
+        top: -7px;
+    }
+}
+
+@media (min-width: 768px) {
+    .navbar-icon-top.navbar-expand-md .navbar-nav .nav-link {
+        text-align: center;
+        display: table-cell;
+        height: 70px;
+        vertical-align: middle;
+        padding-top: 0;
+        padding-bottom: 0;
+    }
+
+    .navbar-icon-top.navbar-expand-md .navbar-nav .nav-link > .fa,
+    .navbar-icon-top.navbar-expand-md .navbar-nav .nav-link > .fab {
+        display: block;
+        width: 48px;
+        margin: 2px auto 4px auto;
+        top: 0;
+        line-height: 24px;
+    }
+
+    .navbar-icon-top.navbar-expand-md .navbar-nav .nav-link > .fa > .badge,
+    .navbar-icon-top.navbar-expand-md .navbar-nav .nav-link > .fab > .badge {
+        top: -7px;
+    }
+}
+
+@media (min-width: 992px) {
+    .navbar-icon-top.navbar-expand-lg .navbar-nav .nav-link {
+        text-align: center;
+        display: table-cell;
+        height: 70px;
+        vertical-align: middle;
+        padding-top: 0;
+        padding-bottom: 0;
+    }
+
+    .navbar-icon-top.navbar-expand-lg .navbar-nav .nav-link > .fa,
+    .navbar-icon-top.navbar-expand-lg .navbar-nav .nav-link > .fab {
+        display: block;
+        width: 48px;
+        margin: 2px auto 4px auto;
+        top: 0;
+        line-height: 24px;
+    }
+
+    .navbar-icon-top.navbar-expand-lg .navbar-nav .nav-link > .fa > .badge,
+    .navbar-icon-top.navbar-expand-lg .navbar-nav .nav-link > .fab > .badge {
+        top: -7px;
+    }
+}
+
+@media (min-width: 1200px) {
+    .navbar-icon-top.navbar-expand-xl .navbar-nav .nav-link {
+        text-align: center;
+        display: table-cell;
+        height: 70px;
+        vertical-align: middle;
+        padding-top: 0;
+        padding-bottom: 0;
+    }
+
+    .navbar-icon-top.navbar-expand-xl .navbar-nav .nav-link > .fa,
+    .navbar-icon-top.navbar-expand-xl .navbar-nav .nav-link > .fab {
+        display: block;
+        width: 48px;
+        margin: 2px auto 4px auto;
+        top: 0;
+        line-height: 24px;
+    }
+
+    .navbar-icon-top.navbar-expand-xl .navbar-nav .nav-link > .fa > .badge,
+    .navbar-icon-top.navbar-expand-xl .navbar-nav .nav-link > .fab > .badge {
+        top: -7px;
+    }
+}
+
+/* ==========================================================================
+3. intro area
+========================================================================== */
+#intro-txt {
+    background-image: url(../images/about/bg.svg);
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    min-height: 650px;
+    position: relative;
+    overflow: hidden;
+    padding: 180px 0 80px;
+}
+
+#intro-txt .contents .head-title {
+    color: #222222;
+    font-size: 42px;
+    font-weight: 700;
+    line-height: 60px;
+    margin-bottom: 10px;
+}
+
+#intro-txt .contents .header-button {
+    margin-top: 20px;
+    color: #222222;
+}
+
+#intro-txt .contents .header-button .btn {
+    margin-right: 10px;
+}
+
+.sloder-img {
+    background: #34363a;
+}
+
+/* ==========================================================================
+4. buttons.
+========================================================================== */
+.btn-circle.btn-sm {
+    width: 30px;
+    height: 30px;
+    padding: 6px 0px;
+    border-radius: 15px;
+    font-size: 12px;
+    text-align: center;
+}
+.btn-circle.btn-md {
+    width: 50px;
+    height: 50px;
+    padding: 7px 10px;
+    border-radius: 25px;
+    font-size: 14px;
+    text-align: center;
+}
+.btn-circle.btn-xl {
+    width: 70px;
+    height: 70px;
+    padding: 10px 16px;
+    border-radius: 35px;
+    font-size: 16px;
+    text-align: center;
+}
+
+.btn-common {
+    border-radius: 30px;
+    background-color: var(--primary);
+    position: relative;
+    z-index: 1;
+    color: var(--light);
+}
+
+.btn-common:hover {
+    color: var(--primary);
+    background: transparent;
+    border: 1px solid var(--primary);
+    box-shadow: 0 6px 22px rgba(0, 0, 0, 0.1);
+    transition: all .2s ease-in-out;
+    -moz-transition: all .2s ease-in-out;
+    -webkit-transition: all .2s ease-in-out;
+}
+
+/* ==========================================================================
+4. about functionality style
+========================================================================== */
+.functionality-item {
+    padding: 20px;
+    border-radius: 4px;
+    text-align: center;
+    margin: 15px 0;
+    box-shadow: 0 0 12px var(--light);
+    transition: all 0.3s ease-in-out 0s;
+    -moz-transition: all 0.3s ease-in-out 0s;
+    -webkit-transition: all 0.3s ease-in-out 0s;
+    -o-transition: all 0.3s ease-in-out 0s;
+}
+
+.functionality-item .icon {
+    border: 1px solid var(--light);
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    margin: 0 auto;
+    transition: all 0.3s ease-in-out 0s;
+    -moz-transition: all 0.3s ease-in-out 0s;
+    -webkit-transition: all 0.3s ease-in-out 0s;
+    -o-transition: all 0.3s ease-in-out 0s;
+}
+
+.functionality-item .icon i {
+    font-size: 30px;
+    color: var(--primary);
+    line-height: 70px;
+    transition: all 0.3s ease-in-out 0s;
+    -moz-transition: all 0.3s ease-in-out 0s;
+    -webkit-transition: all 0.3s ease-in-out 0s;
+    -o-transition: all 0.3s ease-in-out 0s;
+}
+
+.functionality-item .functionality-content h3 {
+    font-size: 16px;
+    color: var(--dark);
+    margin-top: 10px;
+    font-weight: 500;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+}
+
+.functionality-item .functionality-content h3:hover {
+    color: var(--primary);
+}
+
+.functionality-item:hover {
+    box-shadow: 0 10px 22px 10px rgba(27, 38, 49, 0.1);
+}
+
+.functionality-item:hover .icon {
+    background: var(--primary);
+}
+
+.functionality-item:hover .icon i {
+    color: #fff;
+}
+
+

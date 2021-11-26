@@ -1,0 +1,15 @@
+.idea/
+target/
+out/
+Josch.jar
+*.iml
+tools/IsJsonSchemaSubset/node_modules/
+tools/IsJsonSchemaSubset/yarn.lock
+tools/JsonSubSchema/web_jss.py
+Reports/
+draft/
+tools/JsonSubSchema/__pycache__/i_jss.cpython-38.pyc
+tools/JsonSubSchema/test/schemas/result.json
+*.classpath
+*.prefs
+*.project

@@ -1,0 +1,125 @@
+/**
+ This is the .css for the ace code editor. However, ace requires plain text and due to lack of
+ Node.js and similar, we cannot import this. Therefore this stylesheet is just used to develop
+ the theme but the content itself is written into theme-josch.js directly (see the other themes for
+ ref).
+ */
+:root {
+    --ace-orange: #fd7e14;
+    --ace-cyan: rgb(181, 213, 255);
+    --ace-white: #ffffff;
+    --ace-black: #000;
+    --ace-gray: #555651;
+    --ace-gray-light: #8F908A;
+    --ace-primary: #02549c;
+    --ace-secondary: #026FCF;
+    --ace-info: #525252;
+    --ace-blue-light: #f5f5f5;
+    --ace-light: #F7F7F7;
+}
+
+.ace-josch  {
+    background: var(--ace-white);
+    color: var(--ace-black);
+}
+
+.ace-josch .ace_gutter {
+    background: var(--ace-light);
+    color: var(--ace-info);
+}
+
+.ace-josch .ace_gutter-active-line,
+.ace-josch .ace_gutter-cell .ace_gutter-active-line {
+    background-color : var(--ace-blue-light);
+}
+
+.ace-josch .ace_keyword {
+    font-weight: bold;
+}
+
+.ace-josch .ace_string,
+.ace-josch .ace_string.ace_regexp {
+    color: var(--ace-primary);
+}
+
+.ace-josch .ace_variable.ace_class,
+.ace-josch .ace_constant.ace_numeric,
+.ace-josch .ace_constant.ace_buildin,
+.ace-josch .ace_support.ace_function,
+.ace-josch .ace_variable.ace_language,
+.ace-josch .ace_variable.ace_instance
+{
+    color: var(--ace-secondary);
+}
+
+.ace-josch .ace_comment {
+    color: var(--ace-gray);
+    font-style: italic;
+}
+
+.ace-josch .ace_paren {
+    font-weight: bold;
+}
+
+.ace-josch .ace_boolean {
+    font-weight: bold;
+}
+
+.ace-josch .ace_constant.ace_language {
+    font-weight: bold;
+}
+
+.ace-josch .ace_cursor {
+    color: var(--ace-black);
+}
+
+.ace-josch.ace_focus .ace_marker-layer .ace_active-line {
+    background: var(--ace-blue-light);
+}
+
+.ace-josch .ace_marker-layer .ace_active-line {
+    background: var(--ace-light);
+}
+
+.ace-josch .ace_marker-layer .ace_selection {
+    background: var(--ace-cyan);
+}
+
+.ace-josch.ace_multiselect .ace_selection.ace_start {
+    box-shadow: 0 0 3px 0 var(--ace-white);
+}
+
+.ace-josch.ace_nobold .ace_line > span {
+    font-weight: normal !important;
+}
+
+.ace-josch .ace_marker-layer .ace_step {
+    background: var(--ace-orange);
+}
+
+.ace-josch .ace_marker-layer .ace_stack {
+    background: rgb(164, 229, 101);
+}
+
+.ace-josch .ace_marker-layer .ace_bracket {
+    margin: -1px 0 0 -1px;
+    border: 1px solid var(--ace-light);
+}
+
+.ace-josch .ace_marker-layer .ace_selected-word {
+    background: var(--ace-light);
+    border: 1px solid var(--ace-cyan);
+}
+
+.ace-josch .ace_invisible {
+    color: var(--ace-gray-light)
+}
+
+.ace-josch .ace_print-margin {
+    width: 1px;
+    background: var(--ace-gray-light);
+}
+
+.ace-josch .ace_indent-guide {
+    background: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAACCAYAAACZgbYnAAAAE0lEQVQImWP4////f4bLly//BwAmVgd1/w11/gAAAABJRU5ErkJggg==") right repeat-y;
+}
