@@ -15,7 +15,6 @@
     <modules>
         <module>josch.presentation.gui</module>
         <module>josch.presentation.api</module>
-        <module>josch.presentation.web</module>
     </modules>
 
     <dependencies>
